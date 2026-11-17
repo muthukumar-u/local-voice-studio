@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "verified_and_cached",
+  "repository": "hexgrad/Kokoro-82M",
+  "commit": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+  "retrieved_at": "2026-11-17T09:51:53.740771+00:00",
+  "refs_main": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+  "api_source": "https://huggingface.co/api/models/hexgrad/Kokoro-82M?blobs=true",
+  "api_metadata_sha256": "793b1837059705a24c5696d65d81a339bf5ee1878cf4df7d0da8cc57a67d048c",
+  "license": {
+    "spdx": "apache-2.0",
+    "asserted_by": "upstream Hugging Face model card at pinned commit; README preserved",
+    "canonical_text_url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "canonical_text_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "canonical_text_is_additional_provenance_not_an_upstream_repository_file": true
+  },
+  "files": [
+    {
+      "filename": "config.json",
+      "url": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/f3ff3571791e39611d31c381e3a41a3af07b4987/config.json",
+      "size_bytes": 2351,
+      "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+      "verification": {
+        "method": "official Hugging Face API Git blob SHA-1 (blob header + payload)",
+        "expected_git_blob_sha1": "14a726edd3718279eac426630879ff743955b16a",
+        "actual_git_blob_sha1": "14a726edd3718279eac426630879ff743955b16a",
+        "matched": true
+      },
+      "status": "verified"
+    },
+    {
+      "filename": "kokoro-v1_0.pth",
+      "url": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/f3ff3571791e39611d31c381e3a41a3af07b4987/kokoro-v1_0.pth",
+      "size_bytes": 327212226,
+      "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "verification": {
+        "method": "official Hugging Face API LFS SHA-256",
+        "expected_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+        "matched": true,
+        "git_lfs_pointer_blob_id": "15769c415594dcb424579ba3dfae3085578aac4e"
+      },
+      "status": "verified"
+    },
+    {
+      "filename": "voices/af_heart.pt",
+      "url": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/f3ff3571791e39611d31c381e3a41a3af07b4987/voices/af_heart.pt",
+      "size_bytes": 523425,
+      "sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+      "verification": {
+        "method": "official Hugging Face API LFS SHA-256",
+        "expected_sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+        "matched": true,
+        "git_lfs_pointer_blob_id": "23a296174457c31b22b694f6e07e4e1b558122bf"
+      },
+      "status": "verified"
+    },
+    {
+      "filename": "README.md",
+      "url": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/f3ff3571791e39611d31c381e3a41a3af07b4987/README.md",
+      "size_bytes": 6348,
+      "sha256": "91dcabced89db6f109b8786642f50402d3ee87450e8189589b6f85520e7f4d78",
+      "verification": {
+        "method": "official Hugging Face API Git blob SHA-1 (blob header + payload)",
+        "expected_git_blob_sha1": "d6dc124205ad567631d14cd8700f1af77a861c3f",
+        "actual_git_blob_sha1": "d6dc124205ad567631d14cd8700f1af77a861c3f",
+        "matched": true
+      },
+      "status": "verified"
+    }
+  ],
+  "authentication": "public downloads; no account or token used",
+  "runtime_model_inference_verified": false,
+  "notes": [
+    "Regular snapshot files are used instead of symlinked blobs.",
+    "This manifest verifies asset identity/cache population only; inference is a separate step."
+  ]
+}

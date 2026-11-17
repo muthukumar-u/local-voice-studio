@@ -1,0 +1,839 @@
+{
+  "schema_version": 1,
+  "tool_version": "0.1.0",
+  "created_at": "2026-11-17T10:15:53.122160+00:00",
+  "status": "video_complete",
+  "plan": {
+    "schema_version": 1,
+    "video": "/Users/muthu/Programs/personal/tech-distiller/media/ES-001/ES-001-subtitled.mov",
+    "sidecar": "/Users/muthu/Programs/personal/tech-distiller/media/ES-001/ES-001-subtitled.voice.json",
+    "sha256": "a0cd53c7e57d494168770ff90fbfa8ced90ad44426feb5f4f6f0097227d46578",
+    "duration": 122.0,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "fit_mode": "cue",
+    "caption_alignment": "cue_scheduled_not_word_aligned",
+    "clips": [
+      {
+        "id": "C0001",
+        "start": 0.3,
+        "end": 3.875,
+        "text": "You type, “Why is the sky blue?” and press send."
+      },
+      {
+        "id": "C0002",
+        "start": 3.955,
+        "end": 6.93,
+        "text": "What happens before the answer appears?"
+      },
+      {
+        "id": "C0003",
+        "start": 7.01,
+        "end": 11.11,
+        "text": "Let’s follow a text-generating AI, step by step."
+      },
+      {
+        "id": "C0004",
+        "start": 12.8,
+        "end": 15.9,
+        "text": "First, the app prepares the model’s input."
+      },
+      {
+        "id": "C0005",
+        "start": 15.98,
+        "end": 19.83,
+        "text": "That can include your message, earlier chat messages,"
+      },
+      {
+        "id": "C0006",
+        "start": 19.91,
+        "end": 23.985,
+        "text": "and instructions about how the assistant should respond."
+      },
+      {
+        "id": "C0007",
+        "start": 24.065,
+        "end": 27.19,
+        "text": "The exact package varies between apps."
+      },
+      {
+        "id": "C0008",
+        "start": 28.3,
+        "end": 33.35,
+        "text": "Next, a tokenizer turns the text into small pieces called tokens."
+      },
+      {
+        "id": "C0009",
+        "start": 33.43,
+        "end": 35.705,
+        "text": "A token can be a word,"
+      },
+      {
+        "id": "C0010",
+        "start": 35.785,
+        "end": 38.485,
+        "text": "part of a word, or punctuation."
+      },
+      {
+        "id": "C0011",
+        "start": 38.565,
+        "end": 42.74,
+        "text": "Each piece gets a numeric ID the model can process."
+      },
+      {
+        "id": "C0012",
+        "start": 44.3,
+        "end": 48.375,
+        "text": "Those IDs become lists of numbers, called vectors."
+      },
+      {
+        "id": "C0013",
+        "start": 48.455,
+        "end": 51.905,
+        "text": "The model also tracks the order of the tokens."
+      },
+      {
+        "id": "C0014",
+        "start": 51.985,
+        "end": 56.235,
+        "text": "Transformer layers use attention to mix information"
+      },
+      {
+        "id": "C0015",
+        "start": 56.315,
+        "end": 58.94,
+        "text": "from the context available to it."
+      },
+      {
+        "id": "C0016",
+        "start": 59.02,
+        "end": 61.645,
+        "text": "Other layers transform it further."
+      },
+      {
+        "id": "C0017",
+        "start": 61.725,
+        "end": 66.15,
+        "text": "This is computation using patterns learned during training."
+      },
+      {
+        "id": "C0018",
+        "start": 67.3,
+        "end": 70.375,
+        "text": "The model scores possible next tokens."
+      },
+      {
+        "id": "C0019",
+        "start": 70.455,
+        "end": 74.68,
+        "text": "A decoding rule chooses one, sometimes by sampling."
+      },
+      {
+        "id": "C0020",
+        "start": 74.76,
+        "end": 77.685,
+        "text": "Then the new token joins the context,"
+      },
+      {
+        "id": "C0021",
+        "start": 77.765,
+        "end": 79.965,
+        "text": "and the process repeats."
+      },
+      {
+        "id": "C0022",
+        "start": 80.045,
+        "end": 84.245,
+        "text": "“The sky looks blue because…” grows one piece at a time,"
+      },
+      {
+        "id": "C0023",
+        "start": 84.325,
+        "end": 87.5,
+        "text": "until a stop condition ends the response."
+      },
+      {
+        "id": "C0024",
+        "start": 88.3,
+        "end": 92.475,
+        "text": "If the app provides tools, the model may request a search."
+      },
+      {
+        "id": "C0025",
+        "start": 92.555,
+        "end": 95.78,
+        "text": "The app runs it and returns the result."
+      },
+      {
+        "id": "C0026",
+        "start": 95.86,
+        "end": 98.21,
+        "text": "That is an optional extra,"
+      },
+      {
+        "id": "C0027",
+        "start": 98.29,
+        "end": 100.64,
+        "text": "not part of every answer."
+      },
+      {
+        "id": "C0028",
+        "start": 102.3,
+        "end": 106.925,
+        "text": "So the journey is context, tokens, and model computation,"
+      },
+      {
+        "id": "C0029",
+        "start": 107.005,
+        "end": 111.08,
+        "text": "followed by repeated prediction to build the response."
+      },
+      {
+        "id": "C0030",
+        "start": 111.16,
+        "end": 114.61,
+        "text": "A normal prompt guides an already-trained model;"
+      },
+      {
+        "id": "C0031",
+        "start": 114.69,
+        "end": 117.065,
+        "text": "it doesn’t retrain its weights."
+      },
+      {
+        "id": "C0032",
+        "start": 117.145,
+        "end": 121.245,
+        "text": "And a fluent answer still needs checking when the facts matter."
+      }
+    ],
+    "target": {
+      "platform": "youtube",
+      "format": "shorts",
+      "primary_device": "phone",
+      "max_duration_seconds": 180
+    },
+    "inputs_sha256": {
+      "/Users/muthu/Programs/personal/tech-distiller/media/ES-001/ES-001-subtitled.voice.json": "9b0e37434cdc820acbec8f9069598e27ca3f2e22e6e047a7815a7ad155ee9c5b",
+      "/Users/muthu/Programs/personal/tech-distiller/content/ES-001-what-happens-when-you-send-a-prompt/production/voice-segments.json": "4a6c4b573fdba0153ab250ba591be57d2e549549d91c2894dafb79b2e24d403a",
+      "/Users/muthu/Programs/personal/tech-distiller/content/ES-001-what-happens-when-you-send-a-prompt/production/captions.srt": "d00f53edf3cfb23e2ff29f51c4d5380ec536861012e35af1b90b8cc0b4ffedc2",
+      "/Users/muthu/Programs/personal/tech-distiller/content/ES-001-what-happens-when-you-send-a-prompt/production/timeline.json": "85be558d83abfbd7973d35d13b88c33ecd43c5d808ba3a5b9e67a5429d6403bc",
+      "/private/tmp/local-voice-studio/config/explainer.toml": "3613f3bd66be4451c85da676c79b6abf448f6b01dacbe9bbd8f5c4ef1b4c545d"
+    },
+    "media_probe": "not_performed_by_plan; identity verified by sha256",
+    "voice_generated": false
+  },
+  "voice": "af_heart",
+  "model": "hexgrad/Kokoro-82M",
+  "language": "a",
+  "device": "cpu",
+  "sample_rate": 24000,
+  "config_path": "/private/tmp/local-voice-studio/config/explainer.toml",
+  "config_sha256": "5b0675a8dfecfd0d783bbe4eb291638641e8d16fa1b6ed1ea4e1891d7ec5d5bc",
+  "model_provenance": {
+    "repository": "hexgrad/Kokoro-82M",
+    "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+    "assets": {
+      "config.json": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+      "kokoro-v1_0.pth": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voices/af_heart.pt": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff"
+    }
+  },
+  "video_probe": {
+    "duration": 122.0,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0
+  },
+  "voice_quality_review": "not_performed; audition required",
+  "caption_alignment": "cue_scheduled_not_word_aligned",
+  "audio": "/private/tmp/local-voice-studio/outputs/ES-001-natural-voiced/narration.wav",
+  "audio_sha256": "6d2220f3d528c86aebba77046671a0ff3938d69457c4e37182671f07604f2997",
+  "duration": 122.0,
+  "gain": 1.0,
+  "clips": [
+    {
+      "id": "C0001",
+      "start": 0.3,
+      "end": 3.875,
+      "text": "You type, “Why is the sky blue?” and press send.",
+      "synthesis_text": "You type, “Why is the sky blue?” and press send.",
+      "speech_seconds": 3.425,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.425
+        }
+      ]
+    },
+    {
+      "id": "C0002",
+      "start": 3.955,
+      "end": 6.93,
+      "text": "What happens before the answer appears?",
+      "synthesis_text": "What happens before the answer appears?",
+      "speech_seconds": 2.825,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.825
+        }
+      ]
+    },
+    {
+      "id": "C0003",
+      "start": 7.01,
+      "end": 11.11,
+      "text": "Let’s follow a text-generating AI, step by step.",
+      "synthesis_text": "Let’s follow a text-generating AI, step by step.",
+      "speech_seconds": 3.95,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.95
+        }
+      ]
+    },
+    {
+      "id": "C0004",
+      "start": 12.8,
+      "end": 15.9,
+      "text": "First, the app prepares the model’s input.",
+      "synthesis_text": "First, the app prepares the model’s input.",
+      "speech_seconds": 2.95,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.95
+        }
+      ]
+    },
+    {
+      "id": "C0005",
+      "start": 15.98,
+      "end": 19.83,
+      "text": "That can include your message, earlier chat messages,",
+      "synthesis_text": "That can include your message, earlier chat messages,",
+      "speech_seconds": 3.7,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.7
+        }
+      ]
+    },
+    {
+      "id": "C0006",
+      "start": 19.91,
+      "end": 23.985,
+      "text": "and instructions about how the assistant should respond.",
+      "synthesis_text": "and instructions about how the assistant should respond.",
+      "speech_seconds": 3.925,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.925
+        }
+      ]
+    },
+    {
+      "id": "C0007",
+      "start": 24.065,
+      "end": 27.19,
+      "text": "The exact package varies between apps.",
+      "synthesis_text": "The exact package varies between apps.",
+      "speech_seconds": 2.975,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.975
+        }
+      ]
+    },
+    {
+      "id": "C0008",
+      "start": 28.3,
+      "end": 33.35,
+      "text": "Next, a tokenizer turns the text into small pieces called tokens.",
+      "synthesis_text": "Next, a tokenizer turns the text into small pieces called tokens.",
+      "speech_seconds": 4.9,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 4.9
+        }
+      ]
+    },
+    {
+      "id": "C0009",
+      "start": 33.43,
+      "end": 35.705,
+      "text": "A token can be a word,",
+      "synthesis_text": "A token can be a word,",
+      "speech_seconds": 2.125,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.125
+        }
+      ]
+    },
+    {
+      "id": "C0010",
+      "start": 35.785,
+      "end": 38.485,
+      "text": "part of a word, or punctuation.",
+      "synthesis_text": "part of a word, or punctuation.",
+      "speech_seconds": 2.55,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.55
+        }
+      ]
+    },
+    {
+      "id": "C0011",
+      "start": 38.565,
+      "end": 42.74,
+      "text": "Each piece gets a numeric ID the model can process.",
+      "synthesis_text": "Each piece gets a numeric ID the model can process.",
+      "speech_seconds": 4.025,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 4.025
+        }
+      ]
+    },
+    {
+      "id": "C0012",
+      "start": 44.3,
+      "end": 48.375,
+      "text": "Those IDs become lists of numbers, called vectors.",
+      "synthesis_text": "Those IDs become lists of numbers, called vectors.",
+      "speech_seconds": 3.925,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.925
+        }
+      ]
+    },
+    {
+      "id": "C0013",
+      "start": 48.455,
+      "end": 51.905,
+      "text": "The model also tracks the order of the tokens.",
+      "synthesis_text": "The model also tracks the order of the tokens.",
+      "speech_seconds": 3.3,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.3
+        }
+      ]
+    },
+    {
+      "id": "C0014",
+      "start": 51.985,
+      "end": 56.235,
+      "text": "Transformer layers use attention to mix information",
+      "synthesis_text": "Transformer layers use attention to mix information",
+      "speech_seconds": 4.1,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 4.1
+        }
+      ]
+    },
+    {
+      "id": "C0015",
+      "start": 56.315,
+      "end": 58.94,
+      "text": "from the context available to it.",
+      "synthesis_text": "from the context available to it.",
+      "speech_seconds": 2.475,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.475
+        }
+      ]
+    },
+    {
+      "id": "C0016",
+      "start": 59.02,
+      "end": 61.645,
+      "text": "Other layers transform it further.",
+      "synthesis_text": "Other layers transform it further.",
+      "speech_seconds": 2.475,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.475
+        }
+      ]
+    },
+    {
+      "id": "C0017",
+      "start": 61.725,
+      "end": 66.15,
+      "text": "This is computation using patterns learned during training.",
+      "synthesis_text": "This is computation using patterns learned during training.",
+      "speech_seconds": 4.275,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 4.275
+        }
+      ]
+    },
+    {
+      "id": "C0018",
+      "start": 67.3,
+      "end": 70.375,
+      "text": "The model scores possible next tokens.",
+      "synthesis_text": "The model scores possible next tokens.",
+      "speech_seconds": 2.925,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.925
+        }
+      ]
+    },
+    {
+      "id": "C0019",
+      "start": 70.455,
+      "end": 74.68,
+      "text": "A decoding rule chooses one, sometimes by sampling.",
+      "synthesis_text": "A decoding rule chooses one, sometimes by sampling.",
+      "speech_seconds": 4.075,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 4.075
+        }
+      ]
+    },
+    {
+      "id": "C0020",
+      "start": 74.76,
+      "end": 77.685,
+      "text": "Then the new token joins the context,",
+      "synthesis_text": "Then the new token joins the context,",
+      "speech_seconds": 2.775,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.775
+        }
+      ]
+    },
+    {
+      "id": "C0021",
+      "start": 77.765,
+      "end": 79.965,
+      "text": "and the process repeats.",
+      "synthesis_text": "and the process repeats.",
+      "speech_seconds": 2.05,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.05
+        }
+      ]
+    },
+    {
+      "id": "C0022",
+      "start": 80.045,
+      "end": 84.245,
+      "text": "“The sky looks blue because…” grows one piece at a time,",
+      "synthesis_text": "“The sky looks blue because…” grows one piece at a time,",
+      "speech_seconds": 4.05,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 4.05
+        }
+      ]
+    },
+    {
+      "id": "C0023",
+      "start": 84.325,
+      "end": 87.5,
+      "text": "until a stop condition ends the response.",
+      "synthesis_text": "until a stop condition ends the response.",
+      "speech_seconds": 3.025,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.025
+        }
+      ]
+    },
+    {
+      "id": "C0024",
+      "start": 88.3,
+      "end": 92.475,
+      "text": "If the app provides tools, the model may request a search.",
+      "synthesis_text": "If the app provides tools, the model may request a search.",
+      "speech_seconds": 4.025,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 4.025
+        }
+      ]
+    },
+    {
+      "id": "C0025",
+      "start": 92.555,
+      "end": 95.78,
+      "text": "The app runs it and returns the result.",
+      "synthesis_text": "The app runs it and returns the result.",
+      "speech_seconds": 3.075,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.075
+        }
+      ]
+    },
+    {
+      "id": "C0026",
+      "start": 95.86,
+      "end": 98.21,
+      "text": "That is an optional extra,",
+      "synthesis_text": "That is an optional extra,",
+      "speech_seconds": 2.2,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.2
+        }
+      ]
+    },
+    {
+      "id": "C0027",
+      "start": 98.29,
+      "end": 100.64,
+      "text": "not part of every answer.",
+      "synthesis_text": "not part of every answer.",
+      "speech_seconds": 2.2,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.2
+        }
+      ]
+    },
+    {
+      "id": "C0028",
+      "start": 102.3,
+      "end": 106.925,
+      "text": "So the journey is context, tokens, and model computation,",
+      "synthesis_text": "So the journey is context, tokens, and model computation,",
+      "speech_seconds": 4.475,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 4.475
+        }
+      ]
+    },
+    {
+      "id": "C0029",
+      "start": 107.005,
+      "end": 111.08,
+      "text": "followed by repeated prediction to build the response.",
+      "synthesis_text": "followed by repeated prediction to build the response.",
+      "speech_seconds": 3.925,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.925
+        }
+      ]
+    },
+    {
+      "id": "C0030",
+      "start": 111.16,
+      "end": 114.61,
+      "text": "A normal prompt guides an already-trained model;",
+      "synthesis_text": "A normal prompt guides an already-trained model;",
+      "speech_seconds": 3.3,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.3
+        }
+      ]
+    },
+    {
+      "id": "C0031",
+      "start": 114.69,
+      "end": 117.065,
+      "text": "it doesn’t retrain its weights.",
+      "synthesis_text": "it doesn’t retrain its weights.",
+      "speech_seconds": 2.225,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 2.225
+        }
+      ]
+    },
+    {
+      "id": "C0032",
+      "start": 117.145,
+      "end": 121.245,
+      "text": "And a fluent answer still needs checking when the facts matter.",
+      "synthesis_text": "And a fluent answer still needs checking when the facts matter.",
+      "speech_seconds": 3.95,
+      "speed": 0.95,
+      "attempts": [
+        {
+          "speed": 0.95,
+          "seconds": 3.95
+        }
+      ]
+    }
+  ],
+  "ffmpeg_command": [
+    "/private/tmp/local-voice-studio/.tools/media/node_modules/@ffmpeg-installer/darwin-arm64/ffmpeg",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-n",
+    "-i",
+    "/private/tmp/local-voice-studio/outputs/ES-001-natural-voiced/ES-001-subtitled_voiced.mp4",
+    "-i",
+    "/private/tmp/local-voice-studio/outputs/ES-001-natural-voiced/narration.wav",
+    "-map",
+    "0:v:0",
+    "-map",
+    "1:a:0",
+    "-c:v",
+    "copy",
+    "-af",
+    "loudnorm=I=-16:TP=-1.5:LRA=11",
+    "-c:a",
+    "aac",
+    "-b:a",
+    "192k",
+    "-ar",
+    "48000",
+    "-t",
+    "122.0",
+    "-movflags",
+    "+faststart",
+    "/private/tmp/local-voice-studio/outputs/ES-001-natural-levelled/ES-001-subtitled_voiced_levelled.mp4"
+  ],
+  "output_video_probe": {
+    "duration": 122.0,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0
+  },
+  "video": "/private/tmp/local-voice-studio/outputs/ES-001-natural-levelled/ES-001-subtitled_voiced_levelled.mp4",
+  "video_sha256": "a369c8d775e7cd5d3e5e3ffbe6f28e52f7d308fbae39b973c92f35e07fdfc595",
+  "processing_stage": "audio_finishing",
+  "source_receipt": {
+    "path": "/private/tmp/local-voice-studio/outputs/ES-001-natural-voiced/receipt.json",
+    "sha256": "5759eae925198e639622870ee5c7e4554f42ebdfb552c15913d549560330800b"
+  },
+  "source_video": {
+    "path": "/private/tmp/local-voice-studio/outputs/ES-001-natural-voiced/ES-001-subtitled_voiced.mp4",
+    "sha256": "8d456cd0581e15d32297c7a911c8efb1d51dbd8bfe4a30108be11309e713271b",
+    "stream_processing": "copy; no video re-encoding",
+    "encoded_stream_sha256": "ae37b3fdde41ed34ffebb5b3f754ce7aacbf20a2cf296e59393b941542d3e5e2"
+  },
+  "synthesis_config_sha256": "3613f3bd66be4451c85da676c79b6abf448f6b01dacbe9bbd8f5c4ef1b4c545d",
+  "plan_basis": "plan is original synthesis snapshot; current config applies only audio finishing",
+  "audio_finishing": {
+    "targets": {
+      "integrated_lufs": -16.0,
+      "true_peak_dbfs": -1.5,
+      "loudness_range_lu": 11.0,
+      "basis": "editorial playback target; not a YouTube requirement"
+    },
+    "applied_to_video": true,
+    "raw_wav_loudness_normalized": false,
+    "raw_wav_unchanged": true,
+    "measured_raw_narration": {
+      "integrated_lufs": -25.64,
+      "true_peak_dbfs": -1.94,
+      "loudness_range_lu": 3.5,
+      "method": "FFmpeg loudnorm analysis of delivery audio; input_* fields",
+      "analysis_report": {
+        "input_i": "-25.64",
+        "input_tp": "-1.94",
+        "input_lra": "3.50",
+        "input_thresh": "-36.05",
+        "output_i": "-16.43",
+        "output_tp": "-1.50",
+        "output_lra": "3.20",
+        "output_thresh": "-26.83",
+        "normalization_type": "dynamic",
+        "target_offset": "0.43"
+      }
+    },
+    "measured_delivery": {
+      "integrated_lufs": -16.47,
+      "true_peak_dbfs": -1.46,
+      "loudness_range_lu": 3.8,
+      "method": "FFmpeg loudnorm analysis of delivery audio; input_* fields",
+      "analysis_report": {
+        "input_i": "-16.47",
+        "input_tp": "-1.46",
+        "input_lra": "3.80",
+        "input_thresh": "-26.87",
+        "output_i": "-16.09",
+        "output_tp": "-1.50",
+        "output_lra": "3.10",
+        "output_thresh": "-26.49",
+        "normalization_type": "dynamic",
+        "target_offset": "0.09"
+      }
+    },
+    "speech_resynthesized": false,
+    "timing_or_speed_changed": false
+  },
+  "encoded_video_stream_sha256": "ae37b3fdde41ed34ffebb5b3f754ce7aacbf20a2cf296e59393b941542d3e5e2",
+  "encoded_video_stream_unchanged": true
+}

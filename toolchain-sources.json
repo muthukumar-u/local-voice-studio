@@ -1,0 +1,42 @@
+{
+  "python": {
+    "version": "3.12.16",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261110/cpython-3.12.16%2B20261110-aarch64-apple-darwin-install_only_stripped.tar.gz",
+    "sha256": "2f11b8aa3726bdbd87dd9eb76568412faddf4f47e26913fa45d6a2e424972acd",
+    "verification": "GitHub release asset digest"
+  },
+  "uv": {
+    "version": "0.13.8",
+    "filename": "uv-0.13.8-py3-none-macosx_11_0_arm64.whl",
+    "url": "https://files.pythonhosted.org/packages/84/46/deb3a1eb3020575e41d1f9840c07185761d8d4c25cd6f58e813afb017476/uv-0.13.8-py3-none-macosx_11_0_arm64.whl",
+    "sha256": "62b6943c7fd64fac6854f780bea6e0359e5a5bc3241f83ee357bb38276afac49"
+  },
+  "npm_media": {
+    "node_modules/@ffmpeg-installer/darwin-arm64": {
+      "version": "4.1.5",
+      "resolved": "https://registry.npmjs.org/@ffmpeg-installer/darwin-arm64/-/darwin-arm64-4.1.5.tgz",
+      "integrity": "sha512-hYqTiP63mXz7wSQfuqfFwfLOfwwFChUedeCVKkBtl/cliaTM7/ePI9bVzfZ2c+dWu3TqCwLDRWNSJ5pqZl8otA==",
+      "cpu": [
+        "arm64"
+      ],
+      "hasInstallScript": true,
+      "license": "https://git.ffmpeg.org/gitweb/ffmpeg.git/blob_plain/HEAD:/LICENSE.md",
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@ffprobe-installer/darwin-arm64": {
+      "version": "5.0.1",
+      "resolved": "https://registry.npmjs.org/@ffprobe-installer/darwin-arm64/-/darwin-arm64-5.0.1.tgz",
+      "integrity": "sha512-vwNCNjokH8hfkbl6m95zICHwkSzhEvDC3GVBcUp5HX8+4wsX10SP3B+bGur7XUzTIZ4cQpgJmEIAx6TUwRepMg==",
+      "cpu": [
+        "arm64"
+      ],
+      "hasInstallScript": true,
+      "license": "LGPL-2.1",
+      "os": [
+        "darwin"
+      ]
+    }
+  }
+}

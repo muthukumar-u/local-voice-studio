@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-voice-studio"
+version = "0.1.0"
+description = "Reusable timed Kokoro narration and video muxing from agent-authored sidecars"
+requires-python = ">=3.11,<3.13"
+dependencies = []
+
+[project.optional-dependencies]
+voice = [
+    "kokoro==0.9.4",
+    "soundfile>=0.13.1,<0.15",
+    "numpy>=1.26.4,<3",
+    "transformers>=4.48,<5",
+    "espeakng-loader==0.2.4",
+    "spacy-curated-transformers>=0.3.1,<0.4",
+]
+
+[project.scripts]
+voice-studio = "local_voice_studio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "client": "tech-distiller",
+  "episode_id": "ES-001",
+  "records_sha256": {
+    "voice-setup.json": "414b3677332a4ecc19d5b75a165bef918a3eb4fba154f953317779c4e1fb7250",
+    "voice-receipt.json": "5759eae925198e639622870ee5c7e4554f42ebdfb552c15913d549560330800b",
+    "voice-delivery-receipt.json": "02f5d2dce6e4ec2d8532b6eca355e1a8310371c26d94a725f9a4f8b88891c2b3",
+    "voice-timing-audit.json": "54e318ff9cb4d0644cbf51060e67fd0e4b9487d246d804d03283fa018d0e251b"
+  },
+  "note": "Historical reports migrated from channel repository. Paths inside original reports refer to their original run; current integration uses jobs and compact client results."
+}

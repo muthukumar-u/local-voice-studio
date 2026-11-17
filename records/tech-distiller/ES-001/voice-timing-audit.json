@@ -1,0 +1,592 @@
+{
+  "checked_on": "2026-11-17",
+  "basis": "Actual Kokoro af_heart synthesis audit; preserve narration at natural speed 0.95 and retime video/captions instead of truncation or forced acceleration.",
+  "model": "hexgrad/Kokoro-82M",
+  "model_commit": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+  "voice": "af_heart",
+  "speed": 0.95,
+  "previous_duration": 111.5,
+  "duration": 122.0,
+  "slot_margin_seconds": 0.15,
+  "between_cues_seconds": 0.08,
+  "scene_lead_seconds": 0.3,
+  "minimum_scene_tail_seconds": 0.5,
+  "cues": [
+    {
+      "cue": "C0001",
+      "scene": "S01",
+      "text": "You type, “Why is the sky blue?” and press send.",
+      "measured_speech_seconds_at_speed_0_95": 3.425,
+      "previous_relative_window": {
+        "start": 0.3,
+        "end": 5.175
+      },
+      "new_relative_window": {
+        "start": 0.3,
+        "end": 3.875
+      },
+      "new_absolute_window": {
+        "start": 0.3,
+        "end": 3.875
+      }
+    },
+    {
+      "cue": "C0002",
+      "scene": "S01",
+      "text": "What happens before the answer appears?",
+      "measured_speech_seconds_at_speed_0_95": 2.825,
+      "previous_relative_window": {
+        "start": 5.175,
+        "end": 8.1
+      },
+      "new_relative_window": {
+        "start": 3.955,
+        "end": 6.93
+      },
+      "new_absolute_window": {
+        "start": 3.955,
+        "end": 6.93
+      }
+    },
+    {
+      "cue": "C0003",
+      "scene": "S01",
+      "text": "Let’s follow a text-generating AI, step by step.",
+      "measured_speech_seconds_at_speed_0_95": 3.95,
+      "previous_relative_window": {
+        "start": 8.1,
+        "end": 12.0
+      },
+      "new_relative_window": {
+        "start": 7.01,
+        "end": 11.11
+      },
+      "new_absolute_window": {
+        "start": 7.01,
+        "end": 11.11
+      }
+    },
+    {
+      "cue": "C0004",
+      "scene": "S02",
+      "text": "First, the app prepares the model’s input.",
+      "measured_speech_seconds_at_speed_0_95": 2.95,
+      "previous_relative_window": {
+        "start": 0.3,
+        "end": 3.486
+      },
+      "new_relative_window": {
+        "start": 0.3,
+        "end": 3.4
+      },
+      "new_absolute_window": {
+        "start": 12.8,
+        "end": 15.9
+      }
+    },
+    {
+      "cue": "C0005",
+      "scene": "S02",
+      "text": "That can include your message, earlier chat messages,",
+      "measured_speech_seconds_at_speed_0_95": 3.7,
+      "previous_relative_window": {
+        "start": 3.486,
+        "end": 7.128
+      },
+      "new_relative_window": {
+        "start": 3.48,
+        "end": 7.33
+      },
+      "new_absolute_window": {
+        "start": 15.98,
+        "end": 19.83
+      }
+    },
+    {
+      "cue": "C0006",
+      "scene": "S02",
+      "text": "and instructions about how the assistant should respond.",
+      "measured_speech_seconds_at_speed_0_95": 3.925,
+      "previous_relative_window": {
+        "start": 7.128,
+        "end": 10.769
+      },
+      "new_relative_window": {
+        "start": 7.41,
+        "end": 11.485
+      },
+      "new_absolute_window": {
+        "start": 19.91,
+        "end": 23.985
+      }
+    },
+    {
+      "cue": "C0007",
+      "scene": "S02",
+      "text": "The exact package varies between apps.",
+      "measured_speech_seconds_at_speed_0_95": 2.975,
+      "previous_relative_window": {
+        "start": 10.769,
+        "end": 13.5
+      },
+      "new_relative_window": {
+        "start": 11.565,
+        "end": 14.69
+      },
+      "new_absolute_window": {
+        "start": 24.065,
+        "end": 27.19
+      }
+    },
+    {
+      "cue": "C0008",
+      "scene": "S03",
+      "text": "Next, a tokenizer turns the text into small pieces called tokens.",
+      "measured_speech_seconds_at_speed_0_95": 4.9,
+      "previous_relative_window": {
+        "start": 0.3,
+        "end": 5.367
+      },
+      "new_relative_window": {
+        "start": 0.3,
+        "end": 5.35
+      },
+      "new_absolute_window": {
+        "start": 28.3,
+        "end": 33.35
+      }
+    },
+    {
+      "cue": "C0009",
+      "scene": "S03",
+      "text": "A token can be a word,",
+      "measured_speech_seconds_at_speed_0_95": 2.125,
+      "previous_relative_window": {
+        "start": 5.367,
+        "end": 8.13
+      },
+      "new_relative_window": {
+        "start": 5.43,
+        "end": 7.705
+      },
+      "new_absolute_window": {
+        "start": 33.43,
+        "end": 35.705
+      }
+    },
+    {
+      "cue": "C0010",
+      "scene": "S03",
+      "text": "part of a word, or punctuation.",
+      "measured_speech_seconds_at_speed_0_95": 2.55,
+      "previous_relative_window": {
+        "start": 8.13,
+        "end": 10.894
+      },
+      "new_relative_window": {
+        "start": 7.785,
+        "end": 10.485
+      },
+      "new_absolute_window": {
+        "start": 35.785,
+        "end": 38.485
+      }
+    },
+    {
+      "cue": "C0011",
+      "scene": "S03",
+      "text": "Each piece gets a numeric ID the model can process.",
+      "measured_speech_seconds_at_speed_0_95": 4.025,
+      "previous_relative_window": {
+        "start": 10.894,
+        "end": 15.5
+      },
+      "new_relative_window": {
+        "start": 10.565,
+        "end": 14.74
+      },
+      "new_absolute_window": {
+        "start": 38.565,
+        "end": 42.74
+      }
+    },
+    {
+      "cue": "C0012",
+      "scene": "S04",
+      "text": "Those IDs become lists of numbers, called vectors.",
+      "measured_speech_seconds_at_speed_0_95": 3.925,
+      "previous_relative_window": {
+        "start": 0.3,
+        "end": 3.686
+      },
+      "new_relative_window": {
+        "start": 0.3,
+        "end": 4.375
+      },
+      "new_absolute_window": {
+        "start": 44.3,
+        "end": 48.375
+      }
+    },
+    {
+      "cue": "C0013",
+      "scene": "S04",
+      "text": "The model also tracks the order of the tokens.",
+      "measured_speech_seconds_at_speed_0_95": 3.3,
+      "previous_relative_window": {
+        "start": 3.686,
+        "end": 7.495
+      },
+      "new_relative_window": {
+        "start": 4.455,
+        "end": 7.905
+      },
+      "new_absolute_window": {
+        "start": 48.455,
+        "end": 51.905
+      }
+    },
+    {
+      "cue": "C0014",
+      "scene": "S04",
+      "text": "Transformer layers use attention to mix information",
+      "measured_speech_seconds_at_speed_0_95": 4.1,
+      "previous_relative_window": {
+        "start": 7.495,
+        "end": 10.458
+      },
+      "new_relative_window": {
+        "start": 7.985,
+        "end": 12.235
+      },
+      "new_absolute_window": {
+        "start": 51.985,
+        "end": 56.235
+      }
+    },
+    {
+      "cue": "C0015",
+      "scene": "S04",
+      "text": "from the context available to it.",
+      "measured_speech_seconds_at_speed_0_95": 2.475,
+      "previous_relative_window": {
+        "start": 10.458,
+        "end": 12.998
+      },
+      "new_relative_window": {
+        "start": 12.315,
+        "end": 14.94
+      },
+      "new_absolute_window": {
+        "start": 56.315,
+        "end": 58.94
+      }
+    },
+    {
+      "cue": "C0016",
+      "scene": "S04",
+      "text": "Other layers transform it further.",
+      "measured_speech_seconds_at_speed_0_95": 2.475,
+      "previous_relative_window": {
+        "start": 12.998,
+        "end": 15.114
+      },
+      "new_relative_window": {
+        "start": 15.02,
+        "end": 17.645
+      },
+      "new_absolute_window": {
+        "start": 59.02,
+        "end": 61.645
+      }
+    },
+    {
+      "cue": "C0017",
+      "scene": "S04",
+      "text": "This is computation using patterns learned during training.",
+      "measured_speech_seconds_at_speed_0_95": 4.275,
+      "previous_relative_window": {
+        "start": 15.114,
+        "end": 18.5
+      },
+      "new_relative_window": {
+        "start": 17.725,
+        "end": 22.15
+      },
+      "new_absolute_window": {
+        "start": 61.725,
+        "end": 66.15
+      }
+    },
+    {
+      "cue": "C0018",
+      "scene": "S05",
+      "text": "The model scores possible next tokens.",
+      "measured_speech_seconds_at_speed_0_95": 2.925,
+      "previous_relative_window": {
+        "start": 0.3,
+        "end": 2.979
+      },
+      "new_relative_window": {
+        "start": 0.3,
+        "end": 3.375
+      },
+      "new_absolute_window": {
+        "start": 67.3,
+        "end": 70.375
+      }
+    },
+    {
+      "cue": "C0019",
+      "scene": "S05",
+      "text": "A decoding rule chooses one, sometimes by sampling.",
+      "measured_speech_seconds_at_speed_0_95": 4.075,
+      "previous_relative_window": {
+        "start": 2.979,
+        "end": 6.551
+      },
+      "new_relative_window": {
+        "start": 3.455,
+        "end": 7.68
+      },
+      "new_absolute_window": {
+        "start": 70.455,
+        "end": 74.68
+      }
+    },
+    {
+      "cue": "C0020",
+      "scene": "S05",
+      "text": "Then the new token joins the context,",
+      "measured_speech_seconds_at_speed_0_95": 2.775,
+      "previous_relative_window": {
+        "start": 6.551,
+        "end": 9.677
+      },
+      "new_relative_window": {
+        "start": 7.76,
+        "end": 10.685
+      },
+      "new_absolute_window": {
+        "start": 74.76,
+        "end": 77.685
+      }
+    },
+    {
+      "cue": "C0021",
+      "scene": "S05",
+      "text": "and the process repeats.",
+      "measured_speech_seconds_at_speed_0_95": 2.05,
+      "previous_relative_window": {
+        "start": 9.677,
+        "end": 11.463
+      },
+      "new_relative_window": {
+        "start": 10.765,
+        "end": 12.965
+      },
+      "new_absolute_window": {
+        "start": 77.765,
+        "end": 79.965
+      }
+    },
+    {
+      "cue": "C0022",
+      "scene": "S05",
+      "text": "“The sky looks blue because…” grows one piece at a time,",
+      "measured_speech_seconds_at_speed_0_95": 4.05,
+      "previous_relative_window": {
+        "start": 11.463,
+        "end": 16.374
+      },
+      "new_relative_window": {
+        "start": 13.045,
+        "end": 17.245
+      },
+      "new_absolute_window": {
+        "start": 80.045,
+        "end": 84.245
+      }
+    },
+    {
+      "cue": "C0023",
+      "scene": "S05",
+      "text": "until a stop condition ends the response.",
+      "measured_speech_seconds_at_speed_0_95": 3.025,
+      "previous_relative_window": {
+        "start": 16.374,
+        "end": 19.5
+      },
+      "new_relative_window": {
+        "start": 17.325,
+        "end": 20.5
+      },
+      "new_absolute_window": {
+        "start": 84.325,
+        "end": 87.5
+      }
+    },
+    {
+      "cue": "C0024",
+      "scene": "S06",
+      "text": "If the app provides tools, the model may request a search.",
+      "measured_speech_seconds_at_speed_0_95": 4.025,
+      "previous_relative_window": {
+        "start": 0.3,
+        "end": 5.307
+      },
+      "new_relative_window": {
+        "start": 0.3,
+        "end": 4.475
+      },
+      "new_absolute_window": {
+        "start": 88.3,
+        "end": 92.475
+      }
+    },
+    {
+      "cue": "C0025",
+      "scene": "S06",
+      "text": "The app runs it and returns the result.",
+      "measured_speech_seconds_at_speed_0_95": 3.075,
+      "previous_relative_window": {
+        "start": 5.307,
+        "end": 8.948
+      },
+      "new_relative_window": {
+        "start": 4.555,
+        "end": 7.78
+      },
+      "new_absolute_window": {
+        "start": 92.555,
+        "end": 95.78
+      }
+    },
+    {
+      "cue": "C0026",
+      "scene": "S06",
+      "text": "That is an optional extra,",
+      "measured_speech_seconds_at_speed_0_95": 2.2,
+      "previous_relative_window": {
+        "start": 8.948,
+        "end": 11.224
+      },
+      "new_relative_window": {
+        "start": 7.86,
+        "end": 10.21
+      },
+      "new_absolute_window": {
+        "start": 95.86,
+        "end": 98.21
+      }
+    },
+    {
+      "cue": "C0027",
+      "scene": "S06",
+      "text": "not part of every answer.",
+      "measured_speech_seconds_at_speed_0_95": 2.2,
+      "previous_relative_window": {
+        "start": 11.224,
+        "end": 13.5
+      },
+      "new_relative_window": {
+        "start": 10.29,
+        "end": 12.64
+      },
+      "new_absolute_window": {
+        "start": 98.29,
+        "end": 100.64
+      }
+    },
+    {
+      "cue": "C0028",
+      "scene": "S07",
+      "text": "So the journey is context, tokens, and model computation,",
+      "measured_speech_seconds_at_speed_0_95": 4.475,
+      "previous_relative_window": {
+        "start": 0.3,
+        "end": 3.72
+      },
+      "new_relative_window": {
+        "start": 0.3,
+        "end": 4.925
+      },
+      "new_absolute_window": {
+        "start": 102.3,
+        "end": 106.925
+      }
+    },
+    {
+      "cue": "C0029",
+      "scene": "S07",
+      "text": "followed by repeated prediction to build the response.",
+      "measured_speech_seconds_at_speed_0_95": 3.925,
+      "previous_relative_window": {
+        "start": 3.72,
+        "end": 6.76
+      },
+      "new_relative_window": {
+        "start": 5.005,
+        "end": 9.08
+      },
+      "new_absolute_window": {
+        "start": 107.005,
+        "end": 111.08
+      }
+    },
+    {
+      "cue": "C0030",
+      "scene": "S07",
+      "text": "A normal prompt guides an already-trained model;",
+      "measured_speech_seconds_at_speed_0_95": 3.3,
+      "previous_relative_window": {
+        "start": 6.76,
+        "end": 9.42
+      },
+      "new_relative_window": {
+        "start": 9.16,
+        "end": 12.61
+      },
+      "new_absolute_window": {
+        "start": 111.16,
+        "end": 114.61
+      }
+    },
+    {
+      "cue": "C0031",
+      "scene": "S07",
+      "text": "it doesn’t retrain its weights.",
+      "measured_speech_seconds_at_speed_0_95": 2.225,
+      "previous_relative_window": {
+        "start": 9.42,
+        "end": 11.32
+      },
+      "new_relative_window": {
+        "start": 12.69,
+        "end": 15.065
+      },
+      "new_absolute_window": {
+        "start": 114.69,
+        "end": 117.065
+      }
+    },
+    {
+      "cue": "C0032",
+      "scene": "S07",
+      "text": "And a fluent answer still needs checking\nwhen the facts matter.",
+      "measured_speech_seconds_at_speed_0_95": 3.95,
+      "previous_relative_window": {
+        "start": 11.32,
+        "end": 15.5
+      },
+      "new_relative_window": {
+        "start": 15.145,
+        "end": 19.245
+      },
+      "new_absolute_window": {
+        "start": 117.145,
+        "end": 121.245
+      }
+    }
+  ]
+}

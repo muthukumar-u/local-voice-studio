@@ -1,0 +1,120 @@
+{
+  "checked_on": "2026-11-17",
+  "status": "installed_and_actual_synthesis_video_verified",
+  "project": "/private/tmp/local-voice-studio",
+  "preferred_permanent_project": "/Users/muthu/Programs/personal/local-voice-studio",
+  "location_state": "temporary_separate_repo_due_to_session_write_permissions",
+  "config": "/private/tmp/local-voice-studio/config/explainer.toml",
+  "config_sha256": "5b0675a8dfecfd0d783bbe4eb291638641e8d16fa1b6ed1ea4e1891d7ec5d5bc",
+  "bundle": "media/voice-tools/local-voice-studio.tar.gz",
+  "bundle_sha256": "1323110f2fbddf3a08937e07adaa037de47b52ba5d426a48cc18232bffcb5f21",
+  "model": "hexgrad/Kokoro-82M",
+  "model_commit": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+  "model_assets": {
+    "config.json": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+    "kokoro-v1_0.pth": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+    "voices/af_heart.pt": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff"
+  },
+  "voice": "af_heart",
+  "speed": 0.95,
+  "voice_approval": "working_preset_pending_human_listening_preference",
+  "model_installed": true,
+  "voice_generated": true,
+  "doctor": {
+    "python": "3.12.16",
+    "python_supported": true,
+    "isolated_environment": true,
+    "modules": {
+      "kokoro": true,
+      "numpy": true,
+      "soundfile": true,
+      "torch": true,
+      "spacy": true,
+      "en_core_web_sm": true
+    },
+    "ffmpeg": "/private/tmp/local-voice-studio/.tools/media/node_modules/@ffmpeg-installer/darwin-arm64/ffmpeg",
+    "ffprobe": "/private/tmp/local-voice-studio/.tools/media/node_modules/@ffprobe-installer/darwin-arm64/ffprobe",
+    "espeak_ng": "/private/tmp/local-voice-studio/.venv/lib/python3.12/site-packages/espeakng_loader/libespeak-ng.dylib",
+    "model_preflight": "cache_only_synthesis_passed",
+    "model_installed": "local_model_voice_and_g2p_loaded_and_nonzero_audio_generated",
+    "cache": "/private/tmp/local-voice-studio/.cache",
+    "prerequisites_ready": true,
+    "ready": true,
+    "readiness_basis": "actual_cache_only_synthesis",
+    "blockers": [],
+    "diagnostic_audio_seconds": 3.9
+  },
+  "inference_and_ffmpeg_mux_verified": true,
+  "contract_test": {
+    "passed": true,
+    "video": "media/ES-001/ES-001-shorts-subtitled.mp4",
+    "duration": 122,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "cue_count": 32,
+    "relocated_source_bundle_plan_passed": true
+  },
+  "behavior_tests": {
+    "count": 30,
+    "passed": true,
+    "separate_from_real_synthesis": true
+  },
+  "outputs": {
+    "video": "media/ES-001/ES-001-shorts-voiced.mp4",
+    "video_sha256": "a369c8d775e7cd5d3e5e3ffbe6f28e52f7d308fbae39b973c92f35e07fdfc595",
+    "raw_narration": "media/ES-001/narration.wav",
+    "synthesis_receipt": "content/ES-001-what-happens-when-you-send-a-prompt/production/voice-receipt.json",
+    "delivery_receipt": "content/ES-001-what-happens-when-you-send-a-prompt/production/voice-delivery-receipt.json"
+  },
+  "audio_finishing": {
+    "targets": {
+      "integrated_lufs": -16.0,
+      "true_peak_dbfs": -1.5,
+      "loudness_range_lu": 11.0,
+      "basis": "editorial playback target; not a YouTube requirement"
+    },
+    "applied_to_video": true,
+    "raw_wav_loudness_normalized": false,
+    "raw_wav_unchanged": true,
+    "measured_raw_narration": {
+      "integrated_lufs": -25.64,
+      "true_peak_dbfs": -1.94,
+      "loudness_range_lu": 3.5,
+      "method": "FFmpeg loudnorm analysis of delivery audio; input_* fields",
+      "analysis_report": {
+        "input_i": "-25.64",
+        "input_tp": "-1.94",
+        "input_lra": "3.50",
+        "input_thresh": "-36.05",
+        "output_i": "-16.43",
+        "output_tp": "-1.50",
+        "output_lra": "3.20",
+        "output_thresh": "-26.83",
+        "normalization_type": "dynamic",
+        "target_offset": "0.43"
+      }
+    },
+    "measured_delivery": {
+      "integrated_lufs": -16.47,
+      "true_peak_dbfs": -1.46,
+      "loudness_range_lu": 3.8,
+      "method": "FFmpeg loudnorm analysis of delivery audio; input_* fields",
+      "analysis_report": {
+        "input_i": "-16.47",
+        "input_tp": "-1.46",
+        "input_lra": "3.80",
+        "input_thresh": "-26.87",
+        "output_i": "-16.09",
+        "output_tp": "-1.50",
+        "output_lra": "3.10",
+        "output_thresh": "-26.49",
+        "normalization_type": "dynamic",
+        "target_offset": "0.09"
+      }
+    },
+    "speech_resynthesized": false,
+    "timing_or_speed_changed": false
+  },
+  "relocation": "Installed environments are not blindly relocatable; move/copy to a durable sibling directory and use marked-environment recreation or install from the source bundle."
+}

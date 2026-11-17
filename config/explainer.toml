@@ -1,0 +1,36 @@
+[voice]
+engine = "kokoro"
+model = "hexgrad/Kokoro-82M"
+voice = "af_heart"
+language = "a"
+device = "cpu"
+speed = 0.95
+max_speed = 1.15
+max_attempts = 3
+sample_rate = 24000
+# Cue mode keeps speech inside existing SRT phrase windows. Audition for naturalness.
+fit_mode = "cue"
+end_padding_seconds = 0.04
+chunk_pause_seconds = 0.035
+peak_limit = 0.95
+
+[paths]
+# Relative to this config file, not the channel or current working directory.
+cache = "../.cache"
+outputs = "../outputs"
+
+[mux]
+ffmpeg = "../.tools/media/node_modules/@ffmpeg-installer/darwin-arm64/ffmpeg"
+ffprobe = "../.tools/media/node_modules/@ffprobe-installer/darwin-arm64/ffprobe"
+# h264: broadly compatible MP4; copy_mov: retain the original video stream in MOV.
+video_mode = "h264"
+crf = 18
+# Editorial phone-playback target, not a YouTube rule. Applied to delivery video only.
+loudness_lufs = -16.0
+true_peak_db = -1.5
+loudness_range = 11.0
+
+[pronunciation]
+# Optional exact, case-sensitive whole-word replacements; examples:
+# AI = "A I"
+# API = "A P I"
