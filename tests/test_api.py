@@ -28,8 +28,8 @@ def fake_result(**kwargs):
 
 class APITests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.TemporaryDirectory(prefix='voice-api-test-',dir='/private/tmp')
-        self.root=Path(self.tmp.name);self.profile=self.root/'profile.toml';self.profile.write_text('')
+        self.tmp=tempfile.TemporaryDirectory(prefix='voice-api-test-')
+        self.root=Path(self.tmp.name).resolve();self.profile=self.root/'profile.toml';self.profile.write_text('')
         self.data=self.root/'service-data'
 
     def tearDown(self):self.tmp.cleanup()

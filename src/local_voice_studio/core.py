@@ -555,7 +555,7 @@ def loudness_targets(config: Config) -> dict | None:
     if config.loudness_lufs is None:
         return None
     return {"integrated_lufs":config.loudness_lufs,"true_peak_dbfs":config.true_peak_db,"loudness_range_lu":config.loudness_range,
-            "basis":"editorial playback target; not a YouTube requirement"}
+            "basis":"configurable delivery playback target"}
 
 
 def measure_loudness(path: Path, config: Config) -> dict:

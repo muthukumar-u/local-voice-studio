@@ -41,13 +41,16 @@ def digest_value(value,label):
 def check_request(request):
     if type(request.get('schema_version')) is not int or request['schema_version']!=1:
         raise JobBlocked('invalid_request','schema_version must be 1')
-    permitted={'schema_version','job_id','client','episode_id','action','video','sidecar','profile','inputs_sha256','expectations','options','attempt_nonce'}
+    permitted={'schema_version','job_id','client','item_id','episode_id','action','video','sidecar','profile','inputs_sha256','expectations','options','attempt_nonce'}
     if set(request)-permitted:
         raise JobBlocked('invalid_request',f'Unknown request keys: {sorted(set(request)-permitted)}')
     job_id=required_text(request.get('job_id'),'job_id')
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,127}',job_id) or job_id in ('.','..'):
         raise JobBlocked('invalid_request','job_id must be a safe identifier of 1–128 characters')
-    required_text(request.get('client'),'client');required_text(request.get('episode_id'),'episode_id')
+    required_text(request.get('client'),'client')
+    item_id = required_text(request.get('item_id', request.get('episode_id')), 'item_id')
+    if 'item_id' in request and 'episode_id' in request and request['episode_id'] != item_id:
+        raise JobBlocked('invalid_request', 'item_id and its compatibility alias disagree')
     if request.get('action')!='render':
         raise JobBlocked('invalid_request','Only action=render is supported by protocol v1')
     for key in ('video','sidecar','profile'):

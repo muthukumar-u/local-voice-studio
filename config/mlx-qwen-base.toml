@@ -1,4 +1,4 @@
-# Optional adapter, not an installed or tested cloning environment.
+# Optional reference-conditioning adapter; prepare its runtime and model explicitly.
 # Use a SEPARATE MLX-compatible environment; do not add MLX to the locked Kokoro venv.
 [voice]
 engine = "mlx_audio"

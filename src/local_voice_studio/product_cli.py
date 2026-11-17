@@ -1,4 +1,4 @@
-"""Public app/CLI entrypoints, independent of channel episode layouts."""
+"""Public application-neutral CLI entrypoints."""
 from __future__ import annotations
 
 import argparse

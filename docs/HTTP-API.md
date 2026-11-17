@@ -78,6 +78,6 @@ The API is a local single-process service. It adds no accounts, external hosting
 
 ## Verification
 
-`tests/test_api.py` uses FastAPI TestClient and an injected fixture renderer for CPU-only multipart lifecycle, file bounds, safe filenames/paths, capability gating, serial execution, restart reconciliation, errors and download integrity. Those fixture bytes are not real media or a claimed voice generation test. On 2026-11-18, a separate real integration run exercised both multipart upload/poll/download modes through the ASGI app with cached Kokoro synthesis and verified actual MP4 hashes; its ignored reports are recorded in ops/STATE.md. Listening socket startup remains blocked in this sandbox.
+`tests/test_api.py` uses FastAPI TestClient and an injected fixture renderer for CPU-only multipart lifecycle, file bounds, safe filenames/paths, capability gating, serial execution, restart reconciliation, errors and download integrity. Those fixture bytes are not real media or a claimed voice generation test. Run actual provider synthesis and media playback checks in the target environment before deployment.
 
 Implementation references: [FastAPI lifespan](https://fastapi.tiangolo.com/advanced/events/), [file uploads](https://fastapi.tiangolo.com/tutorial/request-files/) and [testing](https://fastapi.tiangolo.com/tutorial/testing/), checked 2026-11-18.

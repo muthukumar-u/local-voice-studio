@@ -13,7 +13,7 @@ from local_voice_studio.core import sha256,TimingOverflow
 
 class JobTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.TemporaryDirectory(prefix='voice-job-test-',dir='/private/tmp')
+        self.tmp=tempfile.TemporaryDirectory(prefix='voice-job-test-')
         self.root=Path(self.tmp.name)
         (self.root/'config').mkdir();self.profile=self.root/'config/explainer.toml';self.profile.write_text('')
         self.video=self.root/'clip.mov';self.video.write_bytes(b'test fixture video identity')
@@ -21,7 +21,7 @@ class JobTests(unittest.TestCase):
         self.srt=self.root/'captions.srt';self.srt.write_text('1\n00:00:00,200 --> 00:00:03,800\nOne clear example.\n')
         self.timeline=self.root/'timeline.json';self.timeline.write_text(json.dumps({'scenes':[{'duration':4,'narration':'One clear example.'}]}))
         self.sidecar=self.root/'clip.voice.json';self.sidecar.write_text(json.dumps({'schema_version':1,'video':{'path':'clip.mov','sha256':sha256(self.video),'width':1080,'height':1920,'fps':30,'duration':4},'narration':{'segments_path':'segments.json','captions_srt_path':'captions.srt','timeline_path':'timeline.json'}}))
-        self.request={'schema_version':1,'job_id':'test-episode-001','client':'example-client','episode_id':'E01','action':'render',
+        self.request={'schema_version':1,'job_id':'test-item-001','client':'example-client','item_id':'media-001','action':'render',
                       'video':{'path':str(self.video),'sha256':sha256(self.video)},'sidecar':{'path':str(self.sidecar),'sha256':sha256(self.sidecar)},
                       'profile':{'path':'config/explainer.toml','sha256':sha256(self.profile)},
                       'inputs_sha256':{str(p):sha256(p) for p in [self.segments,self.srt,self.timeline]},
@@ -36,6 +36,20 @@ class JobTests(unittest.TestCase):
     def tearDown(self):
         for patcher in [self.pipeline,self.audio_probe,self.video_probe,self.runtime,self.root_patch]:patcher.stop()
         self.tmp.cleanup()
+
+    def test_previous_item_identifier_alias_is_still_accepted(self):
+        self.request['episode_id'] = self.request.pop('item_id')
+        self.save()
+        result = jobs.run_job(self.path, dry_run=True)
+        self.assertEqual(result['status'], 'succeeded')
+        self.assertTrue(result['dry_run'])
+
+    def test_conflicting_item_identifiers_are_rejected(self):
+        self.request['episode_id'] = 'different-item'
+        self.save()
+        result = jobs.run_job(self.path, dry_run=True)
+        self.assertEqual(result['status'], 'blocked')
+        self.assertEqual(result['error']['code'], 'invalid_request')
 
     def save(self):self.path.write_text(json.dumps(self.request))
 
@@ -70,11 +84,11 @@ class JobTests(unittest.TestCase):
 
     def test_same_id_with_changed_request_never_clobbers(self):
         first=jobs.run_job(self.path)
-        stored=(self.root/'outputs/jobs/test-episode-001/result.json').read_bytes()
+        stored=(self.root/'outputs/jobs/test-item-001/result.json').read_bytes()
         self.request['attempt_nonce']='explicit-attempt-2';self.save()
         result=jobs.run_job(self.path)
         self.assertEqual(result['error']['code'],'job_id_conflict')
-        self.assertEqual((self.root/'outputs/jobs/test-episode-001/result.json').read_bytes(),stored)
+        self.assertEqual((self.root/'outputs/jobs/test-item-001/result.json').read_bytes(),stored)
 
     def test_dry_run_does_not_reserve_job_or_generate_audio(self):
         result=jobs.run_job(self.path,dry_run=True)

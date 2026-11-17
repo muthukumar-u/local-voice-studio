@@ -4,9 +4,9 @@ All clients use `load_config()` and `providers.create_backend()`. A backend expo
 
 | Engine | Configuration | Reference voice | Actual verification |
 | --- | --- | --- | --- |
-| `kokoro` | Existing `config/explainer.toml` | Unsupported; rejected before model loading | Existing pinned local synthesis path; listening preference still separate |
-| `openai_compatible` | `config/openai-compatible.toml` | Unsupported; rejected before any upload | Mocked HTTP transport/WAV contract tests; real loopback server test is included but skipped where sandbox binding is denied; no real remote provider or paid request tested |
-| `mlx_audio` | `config/mlx-qwen-base.toml` | Qwen3-TTS **Base** with PCM WAV plus exact transcript | Optional adapter only; no MLX installation, reference-cloning render, or listening test claimed |
+| `kokoro` | `config/explainer.toml` | Unsupported; rejected before model loading | Actual cached speech and narration/SRT/VTT videos; verify your installation with doctor --model-preflight |
+| `openai_compatible` | `config/openai-compatible.toml` | Unsupported; rejected before any upload | Local HTTP request/WAV contract tests, including loopback transport; a live remote speech service remains unverified |
+| `mlx_audio` | `config/mlx-qwen-base.toml` | Qwen3-TTS **Base** with PCM WAV plus exact transcript | Actual isolated reference-conditioned video with a synthetic sample; human speaker similarity and listening approval remain unverified |
 
 ## Compatible speech endpoint
 

@@ -15,7 +15,7 @@ chunk_pause_seconds = 0.035
 peak_limit = 0.95
 
 [paths]
-# Relative to this config file, not the channel or current working directory.
+# Relative to this config file, independent of the caller or current working directory.
 cache = "../.cache"
 outputs = "../outputs"
 
@@ -25,7 +25,7 @@ ffprobe = "../.tools/media/node_modules/@ffprobe-installer/darwin-arm64/ffprobe"
 # h264: broadly compatible MP4; copy_mov: retain the original video stream in MOV.
 video_mode = "h264"
 crf = 18
-# Editorial phone-playback target, not a YouTube rule. Applied to delivery video only.
+# Configurable delivery playback target. Applied to delivery video only.
 loudness_lufs = -16.0
 true_peak_db = -1.5
 loudness_range = 11.0

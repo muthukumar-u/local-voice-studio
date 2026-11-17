@@ -18,3 +18,24 @@ private/
 *.ogg
 *.mp4
 *.mov
+
+# Consumer inputs, support reports and run records are local data.
+records/
+uploads/
+samples/
+logs/
+jobs/
+models/
+*.log
+*.flac
+*.aac
+*.aiff
+*.mkv
+*.webm
+*.avi
+*.m4v
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.gguf

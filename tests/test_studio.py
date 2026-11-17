@@ -35,7 +35,7 @@ class StudioTests(unittest.TestCase):
         self.sidecar = self.root / "clip.voice.json"
         self.data = {"schema_version":1,"video":{"path":"clip.mov","sha256":hashlib.sha256(self.video.read_bytes()).hexdigest(),"duration":4,"width":1080,"height":1920,"fps":30},
                      "narration":{"segments_path":"segments.json","captions_srt_path":"captions.srt","timeline_path":"timeline.json"},
-                     "target":{"platform":"youtube","format":"shorts","primary_device":"phone","max_duration_seconds":180}}
+                     "target":{"max_duration_seconds":180}}
         self.save_sidecar()
         self.config=Config()
 
