@@ -106,6 +106,12 @@ class Config:
     true_peak_db: float = -1.5
     loudness_range: float = 11.0
     pronunciation: dict[str, str] = field(default_factory=dict)
+    provider_base_url: str = ""
+    provider_api_key_env: str = ""
+    provider_timeout_seconds: float = 60.0
+    provider_python: str = ""
+    reference_audio: Path | None = None
+    reference_text: str | None = None
 
 
 def load_config(path: Path | None) -> Config:
@@ -116,7 +122,7 @@ def load_config(path: Path | None) -> Config:
             data = tomllib.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError) as exc:
             raise StudioError(f"Cannot read TOML config {path}: {exc}") from exc
-        permitted = {"voice", "paths", "mux", "pronunciation"}
+        permitted = {"voice", "paths", "mux", "pronunciation", "provider", "reference"}
         if set(data) - permitted:
             raise StudioError(f"Unknown config sections: {sorted(set(data) - permitted)}")
         for section in ("voice", "mux"):
@@ -129,6 +135,27 @@ def load_config(path: Path | None) -> Config:
                 raise StudioError(f"Unknown {section} keys: {sorted(set(values) - allowed)}")
             for key, value in values.items():
                 setattr(config, key, value)
+        voice_values = object_value(data.get("voice", {}), "voice")
+        if config.engine == "mlx_audio":
+            for key, value in {"voice": "", "language": "auto", "device": "mps", "speed": 1.0, "max_speed": 1.0}.items():
+                if key not in voice_values:
+                    setattr(config, key, value)
+        provider = object_value(data.get("provider", {}), "provider")
+        if set(provider) - {"base_url", "api_key_env", "timeout_seconds", "python"}:
+            raise StudioError("Unknown provider configuration keys")
+        for key, value in provider.items():
+            setattr(config, "provider_" + key, value)
+        if config.provider_python:
+            worker_python = Path(required_text(config.provider_python, "provider.python")).expanduser()
+            config.provider_python = os.path.abspath(str(path.parent/worker_python) if not worker_python.is_absolute() else str(worker_python))
+        reference = object_value(data.get("reference", {}), "reference")
+        if set(reference) - {"audio", "text"}:
+            raise StudioError("Unknown reference configuration keys")
+        if "audio" in reference:
+            audio_path = Path(required_text(reference["audio"], "reference.audio")).expanduser()
+            config.reference_audio = (path.parent / audio_path).resolve() if not audio_path.is_absolute() else audio_path.resolve()
+        if "text" in reference:
+            config.reference_text = required_text(reference["text"], "reference.text")
         paths = object_value(data.get("paths", {}), "paths")
         if set(paths) - {"cache", "outputs"}:
             raise StudioError("paths supports only cache and outputs")
@@ -141,14 +168,12 @@ def load_config(path: Path | None) -> Config:
                 candidate = Path(value).expanduser()
                 setattr(config, key, str((path.parent/candidate).resolve() if not candidate.is_absolute() else candidate.resolve()))
         config.pronunciation = object_value(data.get("pronunciation", {}), "pronunciation")
-    for key in ("engine", "model", "voice", "language", "device", "fit_mode", "ffmpeg", "ffprobe", "video_mode"):
+    for key in ("engine", "model", "language", "device", "fit_mode", "ffmpeg", "ffprobe", "video_mode"):
         setattr(config, key, required_text(getattr(config, key), key))
-    if config.engine != "kokoro" or config.model != "hexgrad/Kokoro-82M":
-        raise StudioError("This backend supports engine='kokoro', model='hexgrad/Kokoro-82M' only")
-    if config.language not in ("a", "b"):
-        raise StudioError("This wrapper supports English: language='a' (US) or 'b' (UK)")
-    if not re.fullmatch(r"[ab][fm]_[a-z]+", config.voice) or not config.voice.startswith(config.language):
-        raise StudioError("voice must be a single compatible Kokoro English voice, e.g. af_heart with language='a'")
+    if config.engine != "mlx_audio":
+        config.voice = required_text(config.voice, "voice")
+    if type(config.sample_rate) is not int or not 8000 <= config.sample_rate <= 96000:
+        raise StudioError("sample_rate must be an integer from 8000 to 96000")
     if config.device not in ("cpu", "cuda", "mps"):
         raise StudioError("device must be cpu, cuda, or mps")
     config.speed = number(config.speed, "speed", 0.5)
@@ -157,8 +182,6 @@ def load_config(path: Path | None) -> Config:
         raise StudioError("max_speed must be <=1.25; retime rather than making rushed narration")
     if type(config.max_attempts) is not int or not 1 <= config.max_attempts <= 5:
         raise StudioError("max_attempts must be an integer from 1 to 5")
-    if config.sample_rate != 24000:
-        raise StudioError("Kokoro output is 24000 Hz; sample_rate must be 24000")
     if config.fit_mode not in ("cue", "scene"):
         raise StudioError("fit_mode must be cue or scene")
     if config.video_mode not in ("h264", "copy_mov"):
@@ -184,6 +207,8 @@ def load_config(path: Path | None) -> Config:
     for key, value in config.pronunciation.items():
         required_text(key, "pronunciation key")
         required_text(value, "pronunciation value")
+    from .providers import validate_provider_config
+    validate_provider_config(config)
     return config
 
 
@@ -370,6 +395,9 @@ def executable(value: str) -> str | None:
 
 
 def environment_status(config: Config, audio_only=False) -> dict:
+    if config.engine != "kokoro":
+        from .providers import backend_status
+        return backend_status(config, audio_only=audio_only)
     modules = {}
     for name in ("kokoro", "numpy", "soundfile", "torch", "spacy", "en_core_web_sm"):
         try:
@@ -403,6 +431,7 @@ def environment_status(config: Config, audio_only=False) -> dict:
     if not audio_only and (not ffmpeg or not ffprobe):
         blockers.append("FFmpeg and ffprobe are required to probe and mux the final video")
     return {
+        "engine": "kokoro", "capabilities": {"reference_audio": False, "reference_text_required": False, "cloning": False, "speed_control": True},
         "python": sys.version.split()[0], "python_supported": supported,
         "isolated_environment": sys.prefix != sys.base_prefix, "modules": modules,
         "ffmpeg": ffmpeg, "ffprobe": ffprobe, "espeak_ng": espeak,

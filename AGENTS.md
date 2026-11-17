@@ -15,7 +15,7 @@ Read `README.md` and `ops/STATE.md`, then the affected request, profile, source 
 
 Use `skills/voice-production/SKILL.md` for operating or diagnosing this module. It is a versioned local workflow read by path; do not change global client settings to install it.
 
-Use `docs/JOB-PROTOCOL.md` for client integration. Invoke the repository interpreter explicitly: `<voice-repo>/.venv/bin/python -m local_voice_studio job --request <absolute-request>`. Relative profile paths resolve within this repository. Requests bind video, sidecar, every referenced text asset and profile by SHA-256. Full jobs/logs/model details remain here; clients retain compact requests/results and artifact references.
+Use the Python facade / process CLI for video+narration or video+SRT/VTT; use `docs/HTTP-API.md` for upload clients. These interfaces do not require a channel layout. Configured `[provider].python` isolates optional model stacks for whole jobs; preserve the virtualenv executable path when invoking it. Use `docs/JOB-PROTOCOL.md` for legacy client integration. Invoke the repository interpreter explicitly: `<voice-repo>/.venv/bin/python -m local_voice_studio job --request <absolute-request>`. Relative profile paths resolve within this repository. Requests bind video, sidecar, every referenced text asset and profile by SHA-256. Full jobs/logs/model details remain here; clients retain compact requests/results and artifact references.
 
 Completed matching retries revalidate inputs and outputs before reuse. A conflicting, incomplete, blocked or failed job cannot be silently overwritten or automatically retried. Use an explicit new attempt nonce and new job ID when a new attempt is intended.
 

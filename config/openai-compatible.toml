@@ -1,0 +1,28 @@
+# Example only. This engine can send narration to the selected server and incur its fees.
+[voice]
+engine = "openai_compatible"
+model = "your-server-model"
+voice = "your-server-voice"
+language = "en"
+speed = 1.0
+max_speed = 1.15
+sample_rate = 24000
+
+[provider]
+# An API root ending in /v1; /audio/speech is appended.
+base_url = "http://127.0.0.1:8000/v1"
+# Empty means an explicitly configured anonymous local service.
+# For authenticated servers, name an existing secret environment variable here.
+api_key_env = ""
+timeout_seconds = 60
+
+[paths]
+cache = "../.cache"
+outputs = "../outputs"
+
+[mux]
+ffmpeg = "../.tools/media/node_modules/@ffmpeg-installer/darwin-arm64/ffmpeg"
+ffprobe = "../.tools/media/node_modules/@ffprobe-installer/darwin-arm64/ffprobe"
+video_mode = "h264"
+loudness_lufs = -16.0
+true_peak_db = -1.5

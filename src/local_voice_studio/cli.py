@@ -23,7 +23,7 @@ def parser():
     root = argparse.ArgumentParser(description="Add timed local Kokoro narration to an agent-generated video and its sidecar.")
     root.add_argument("--version", action="version", version=__version__)
     commands = root.add_subparsers(dest="command", required=True)
-    for name in ("doctor", "prepare", "plan", "render", "finish", "job"):
+    for name in ("doctor", "prepare", "plan", "render", "finish", "job", "process", "serve"):
         item = commands.add_parser(name)
         if name!="job":
             item.add_argument("--config", type=Path, default=default_config())
@@ -53,7 +53,7 @@ def emit(value):
 
 
 def render(plan, config, args):
-    from .backend import KokoroBackend
+    from .providers import create_backend
     if not args.audio_only:
         actual_probe = probe_video(plan, config)
         if not environment_status(config)["ffmpeg"]:
@@ -64,7 +64,7 @@ def render(plan, config, args):
     if folder.exists() and any(folder.iterdir()):
         raise StudioError(f"Output directory is not empty: {folder}. Choose a new --output-dir; no files were overwritten")
     with redirect_stdout(sys.stderr):
-        backend = KokoroBackend(config, allow_downloads=args.allow_downloads)
+        backend = create_backend(config, allow_downloads=args.allow_downloads)
     verify_plan_unchanged(plan)
     folder.mkdir(parents=True, exist_ok=True)
     receipt = {"schema_version": 1, "tool_version": __version__, "created_at": datetime.now(timezone.utc).isoformat(),
@@ -175,7 +175,11 @@ def finish(config,args):
 
 
 def main(argv=None):
-    args = parser().parse_args(argv)
+    actual_argv = list(sys.argv[1:] if argv is None else argv)
+    if actual_argv and actual_argv[0] in ("process", "serve"):
+        from .product_cli import main as product_main
+        return product_main(actual_argv)
+    args = parser().parse_args(actual_argv)
     if args.command=="job":
         from .jobs import run_job,exit_code
         result=run_job(args.request,dry_run=args.dry_run)
@@ -190,16 +194,16 @@ def main(argv=None):
                 if status["blockers"]:
                     status["model_preflight"] = "not_attempted_missing_prerequisites"
                 else:
-                    from .backend import KokoroBackend
+                    from .providers import create_backend
                     try:
                         with redirect_stdout(sys.stderr):
-                            backend = KokoroBackend(config, allow_downloads=False)
+                            backend = create_backend(config, allow_downloads=False)
                             samples = validated_samples(backend.synthesize("A clear explanation starts with one useful question.", config.speed), config.sample_rate)
-                        status["model_preflight"] = "cache_only_synthesis_passed"
+                        status["model_preflight"] = "remote_synthesis_passed" if config.engine == "openai_compatible" else "cache_only_synthesis_passed"
                         status["diagnostic_audio_seconds"] = len(samples)/config.sample_rate
-                        status["model_installed"] = "local_model_voice_and_g2p_loaded_and_nonzero_audio_generated"
+                        status["model_installed"] = "remote_not_locally_installed" if config.engine == "openai_compatible" else "local_model_loaded_and_nonzero_audio_generated"
                         status["ready"] = True
-                        status["readiness_basis"] = "actual_cache_only_synthesis"
+                        status["readiness_basis"] = "actual_remote_synthesis" if config.engine == "openai_compatible" else "actual_cache_only_synthesis"
                     except StudioError as exc:
                         status["model_preflight"] = "cache_only_synthesis_failed"
                         status["blockers"].append(str(exc)); status["ready"] = False
@@ -207,11 +211,11 @@ def main(argv=None):
             return 0 if not status["blockers"] else 2
         if args.command == "prepare":
             # Explicit one-time cache population; no global package installation.
-            from .backend import KokoroBackend
+            from .providers import create_backend
             with redirect_stdout(sys.stderr):
-                backend = KokoroBackend(config, allow_downloads=True)
+                backend = create_backend(config, allow_downloads=True)
                 samples = validated_samples(backend.synthesize("A clear explanation starts with one useful question.", config.speed), config.sample_rate)
-            emit({"status": "model_prepared", "cache": str(config.cache), "voice": config.voice,
+            emit({"status": "remote_synthesis_verified" if config.engine == "openai_compatible" else "model_prepared", "cache": str(config.cache), "voice": config.voice,
                   "diagnostic_audio_seconds": len(samples)/config.sample_rate,
                   "auditory_quality": "not_reviewed"})
             return 0

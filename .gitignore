@@ -1,4 +1,5 @@
 .venv/
+.clone-venv/
 .cache/
 .tools/
 outputs/
@@ -8,3 +9,12 @@ __pycache__/
 build/
 dist/
 .DS_Store
+private/
+.env
+.env.*
+*.wav
+*.mp3
+*.m4a
+*.ogg
+*.mp4
+*.mov

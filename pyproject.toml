@@ -4,12 +4,22 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "local-voice-studio"
-version = "0.1.0"
-description = "Reusable timed Kokoro narration and video muxing from agent-authored sidecars"
+version = "0.2.0"
+description = "Configurable voice/video production with Python, CLI and upload API interfaces"
 requires-python = ">=3.11,<3.13"
 dependencies = []
 
 [project.optional-dependencies]
+clone = [
+    "mlx-audio==0.6.6; sys_platform == 'darwin' and platform_machine == 'arm64'",
+    "soundfile>=0.13.1,<0.15",
+]
+service = [
+    "fastapi==0.163.1",
+    "uvicorn==0.54.0",
+    "python-multipart==0.0.34",
+    "starlette==1.10.0",
+]
 voice = [
     "kokoro==0.9.4",
     "soundfile>=0.13.1,<0.15",
@@ -21,6 +31,10 @@ voice = [
 
 [project.scripts]
 voice-studio = "local_voice_studio.cli:main"
+voice-video = "local_voice_studio.product_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+local_voice_studio = ["web.html"]

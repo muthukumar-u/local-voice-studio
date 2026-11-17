@@ -1,0 +1,32 @@
+# Optional adapter, not an installed or tested cloning environment.
+# Use a SEPARATE MLX-compatible environment; do not add MLX to the locked Kokoro venv.
+[voice]
+engine = "mlx_audio"
+model = "mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16"
+language = "auto"
+device = "mps"
+speed = 1.0
+max_speed = 1.0
+sample_rate = 24000
+
+# Supply your own readable PCM WAV and its exact spoken transcript.
+# The generic facade can override these two fields at request time instead.
+# [reference]
+# audio = "../private/reference.wav"
+# text = "The literal words spoken in that recording."
+
+[provider]
+# The generic facade delegates the whole job, loading the model once in this environment.
+python = "../.clone-venv/bin/python"
+timeout_seconds = 60
+
+[paths]
+cache = "../.cache/mlx"
+outputs = "../outputs"
+
+[mux]
+ffmpeg = "../.tools/media/node_modules/@ffmpeg-installer/darwin-arm64/ffmpeg"
+ffprobe = "../.tools/media/node_modules/@ffprobe-installer/darwin-arm64/ffprobe"
+video_mode = "h264"
+loudness_lufs = -16.0
+true_peak_db = -1.5
